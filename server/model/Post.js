@@ -23,12 +23,14 @@ const postSchema = mongoose.Schema(
             of: Boolean, //Boolean to check if it exists 
         },
         comments: {
-            types: Array,
+            type: Array,
             default: []
         },
     },
     { timestamps: true }
 );
+
+mongoose.set("strictQuery", false)
 
 const Post = mongoose.model("Post", postSchema);
 
