@@ -4,5 +4,3 @@
     },
     "include": ["src"]
 }
-
-//when files are imported from other files we can import from source (src)
