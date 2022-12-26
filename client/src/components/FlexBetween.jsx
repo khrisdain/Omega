@@ -1,4 +1,4 @@
-///reuseable css component *scss* 
+ ///reuseable css component *scss* 
 
 import { Box } from "@mui/material";
 import { styled } from "@mui/system"; 
