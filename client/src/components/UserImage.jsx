@@ -8,7 +8,10 @@ const UserImage = ({ image, size="60px"}) => {
                 width={size}
                 height={size}
                 alt="posted"
+                src={ `http://localhost:3001/assets/${image}` }
             />
         </Box>
     )
 }
+
+export default UserImage; 
