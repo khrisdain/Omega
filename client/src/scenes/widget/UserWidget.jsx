@@ -2,7 +2,7 @@ import {
     ManageAccountsOutlined,
     EditOutlined,
     LocationOutlined,
-    WorkOutLined,
+    WorkOutlineOutlined,
     Satellite, 
 } from "@mui/icons-material"
 
@@ -82,7 +82,47 @@ const UserWidget = ({ userId, picturePath }) => {
                 <Box p="1rem 0">
                  <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
                   <LocationOutlined fontSized="large" sx={{ color:main}}/>
+                  <Typography color={medium}>{location}</Typography>
                  </Box>
+
+                 <Box display="flex" alignItems="center" gap="1rem">
+                  <WorkOutlineOutlined fontSized="large" sx={{ color:main}}/>
+                  <Typography color={medium}>{ occupation }</Typography>
+                 </Box>
+                </Box>
+
+                {/* THIRD ROW */}
+                <Box p="1rem 0">
+                  <FlexBetween mb="0.5rem">
+                    <Typography color={medium}>who's viewed your profile</Typography>
+                    <Typography color={main} fontWeight="500">
+                      {viewedProfile}
+                    </Typography>
+                  </FlexBetween>
+
+                  <FlexBetween>
+                    <Typography color={medium}>Impressions of your post</Typography>
+                    <Typography color={main} fontWeight="500">
+                      {impressions}
+                    </Typography>
+                  </FlexBetween>
+                </Box>
+
+                {/* FOURTH RUNNER */}
+                <Box p="1rem 0">
+                  <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">
+                    Social Profiles
+                  </Typography>
+                  <FlexBetween gap="1rem" mb="0.5rem">
+                    <FlexBetween gap="1rem">
+                      <img src="../assets/twitter.png" alt="twitter" />
+                      <Box>
+                        <Typography color={main} fontWeight="500"> Twitter </Typography>
+                        <Typography color={medium} fontWeight="500"> Social Network </Typography>
+                      </Box>
+                    </FlexBetween>
+                    <EditOutlined sx={{ color: main }} />
+                  </FlexBetween>
                 </Box>
             </FlexBetween>
         </WidgetWrapper>
