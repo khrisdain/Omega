@@ -23,7 +23,7 @@ import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 
@@ -37,6 +37,7 @@ const MyPostwidget = ({ picturePath }) => {
     const token = useSelector((state) => state.token);
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
     const mediumMain = palette.neutral.mediumMain; 
+    const medium= palette.neutral.medium; 
 
 
     //Makes Api Call
@@ -79,7 +80,7 @@ const MyPostwidget = ({ picturePath }) => {
           </FlexBetween>
           {isImage && (
             <Box
-              border={`1px solid ${medium}`}
+              border={`1px solid ${mediumMain}`}
               borderRadius="5px"
               mt="1rem"
               p="1rem"
@@ -104,7 +105,7 @@ const MyPostwidget = ({ picturePath }) => {
                     ) : (
                         <FlexBetween>
                          <Typography>{image.name}</Typography>
-                         <EditOutlinedIcon />
+                         <EditOutlined />
                         </FlexBetween>
                     )}
                     </Box>
@@ -121,8 +122,61 @@ const MyPostwidget = ({ picturePath }) => {
               </Dropzone>
             </Box>
           )}
+          <Divider sx={{ margin: "1.25rem 0"}} />
+
+          {/* ICONS CREATION */}
+          <FlexBetween>
+           <FlexBetween gap="0.25rem" onClick ={() => setIsImage(!isImage)}>
+             <ImageOutlined sx={{ color: mediumMain }} />
+             <Typography
+               color={mediumMain}
+               sx={{ "&:hover" : { cursor: "pointer", color: medium }}}
+             >
+              Image
+             </Typography>
+           </FlexBetween>
+
+           {/*FOR LARGE SCREENS */}
+
+           { isNonMobileScreens ? (
+            <React.Fragment>
+              <FlexBetween gap="0.25rem">
+                <GifBoxOutlined sx={{ color: mediumMain }} />
+                <Typography color={mediumMain}>Clip</Typography>
+              </FlexBetween>
+
+              <FlexBetween gap="0.25rem">
+                <AttachFileOutlined sx={{ color: mediumMain }} />
+                <Typography color={mediumMain}>Attachment</Typography>
+              </FlexBetween>
+
+              <FlexBetween gap="0.25rem">
+                <MicOutlined sx={{ color: mediumMain }} />
+                <Typography color={mediumMain}>Audio</Typography>
+              </FlexBetween>
+            </React.Fragment>
+           ) : (<FlexBetween gap="0.25rem">
+             <MoreHorizOutlined sx={{ color: mediumMain }} />
+            </FlexBetween> 
+           )}
+
+           {/*Button calls handlePost */}
+           <Button
+             disbaled={!post}
+             onClick={handlePost}
+             sx={{
+              color: palette.background.alt,
+              backgroundColor: palette.primary.main,
+              borderRadius: "3rem"
+             }}
+           >
+            POST
+           </Button>
+          </FlexBetween>
         </WidgetWrapper>
     )
-}
+};
+
+export default MyPostwidget; 
 
 
