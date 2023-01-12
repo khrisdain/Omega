@@ -8,4 +8,4 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     const posts = useSelector((state) => state.posts)
 }
 
-export default Postswidget; 
+export default PostsWidget; 
