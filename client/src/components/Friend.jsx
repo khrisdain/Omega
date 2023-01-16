@@ -1,11 +1,12 @@
 import { PersonAddOutlined, PersonRemoveOutline } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
-const Friend = ({ friend, name, subtitle, userPicturePath}) => {
+const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { _id } = useSelector((state) => state.users);
@@ -19,6 +20,22 @@ const Friend = ({ friend, name, subtitle, userPicturePath}) => {
     const  main = palette.neutral.main;
     const medium = palette.neutral.medium; 
 
-    const isFriend = friends.find((friend) => friend._id ==== friendId)}
+    const isFriend = friends.find((friend) => friend._id === friendId)}
+
+    //api call
+    const patchFriend = async() => {
+        const response = await fetch(
+            `http://localhost:3001/users/${_id}/${friendId}`,
+            {
+              method: "PATCH",
+              headers: {
+                Authorization:`Bearer ${token}`,
+                "Content-Type": "appllication/json",
+              }
+            }
+        );
+        const data = await response.json(); 
+        dispatch(setFriends({ friends: data }));
+    }
 
 export default Friend; 
