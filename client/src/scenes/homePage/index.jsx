@@ -6,6 +6,7 @@ import Navbar from "../navbar/index";
 import PostWidget from "scenes/widget/PostWidget";
 
 
+
 const HomePage = () => {
     const isNonMobileScreens =useMediaQuery("(min-width: 1000px)")
     const { _id, picturePath } = useSelector((state) => state.user);
@@ -24,7 +25,7 @@ const HomePage = () => {
 
               <Box flexBasis={isNonMobileScreens ? "42%  " : undefined} mt={ isNonMobileScreens ? undefined : "2rem"}>
                 <MyPostWidget picturePath={picturePath}  />
-                <PostWidget userId={_id} />
+                <PostWidget userId={_id}/>
               </Box>
             </Box>
         </Box>
