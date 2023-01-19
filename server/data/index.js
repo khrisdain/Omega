@@ -11,7 +11,22 @@ const userIds = [
   new mongoose.Types.ObjectId(),
 ];
 
-export const users = [
+export const users = [  
+  {
+    _id: "63c5db39531da1f2d8e99809",
+    firstName : "Olamide",
+    lastName: "Ilesanmi",
+    email: "olamideilesanmi17@gmail.com",
+    password: "$2b$10$FIiac34Ztz5WcZGJlrTbK.xBuj65.f.iz0I26ocXzpHaGmIbl86pK",
+    picturePath: "IMG_20221202_123002.jpg",
+    friends: [],
+    location: "Lagos, NIgeria",
+    occupation: "Software Engineer",
+    viewedProfile: 4128,
+    createdAt:  1115211422,
+    updatedAt:  1115211422,
+    __v:0
+  },
   {
     _id: userIds[0],
     firstName: "test",
@@ -164,6 +179,8 @@ export const posts = [
       "yet another random comment",
     ],
   },
+
+
   {
     _id: new mongoose.Types.ObjectId(),
     userId: userIds[3],
