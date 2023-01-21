@@ -4,6 +4,7 @@ import UserWidget from "scenes/widget/UserWidget";
 import MyPostWidget from "scenes/widget/MyPostWidget";
 import Navbar from "../navbar/index";
 import PostWidget from "scenes/widget/PostWidget";
+import AdvertWidget from "scenes/widget/AdvertWidget";
 
 
 
@@ -27,6 +28,13 @@ const HomePage = () => {
                 <MyPostWidget picturePath={picturePath}  />
                 <PostWidget userId={_id}/>
               </Box>
+
+              {isNonMobileScreens && (
+                <Box flexBasis="26%">
+                 <AdvertWidget />
+                 <Box m="2rem 0" />
+                </Box>
+              )}
             </Box>
         </Box>
     ) 
